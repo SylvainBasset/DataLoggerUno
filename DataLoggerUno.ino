@@ -52,17 +52,17 @@ static s_ChannelDesc const k_aChDesc [NB_CHANNELS] =
 ///** Broche CS de la carte SD */
 //static const byte SDCARD_CS_PIN = 10; // A remplacer suivant votre shield SD
 
-typedef struct
+typedef struct                               /* measure channel data */
 {
-   s_BasicFilter FilterData1 ;
-   uint16_t u16RawValues1 [DLG_MOY_DEPTH] ;
-   s_BasicFilter FilterData2 ;
-   uint16_t u16RawValues2 [DLG_MOY_DEPTH] ;
+   s_BasicFilter FilterData1 ;               /* voltage 1 filter average data */
+   uint16_t u16RawValues1 [DLG_MOY_DEPTH] ;  /* voltage 1 raw values tables for filter average */
+   s_BasicFilter FilterData2 ;               /* voltage 2 filter average data */
+   uint16_t u16RawValues2 [DLG_MOY_DEPTH] ;  /* voltage 2 raw values tables for filter average */
 
-   uint16_t u16Volt ;
-   uint16_t u16VoltCur ;
-   int16_t i16Current ;
-   bool bMesOk ;
+   uint16_t u16Volt ;                        /* Voltage value (mV) */
+   uint16_t u16VoltCur ;                     /* Voltage get for current measurment */
+   int16_t i16Current ;                      /* Current value (mA) */
+   bool bMesOk ;                             /* measure in progress indicator */
 } s_Measure ;
 
 
